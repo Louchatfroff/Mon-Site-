@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site style guns.lol</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body, html {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+    }
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(15px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.8s ease, backdrop-filter 0.8s ease;
+        z-index: 10;
+    }
+    .overlay.hidden {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+        pointer-events: none;
+    }
+    .enter-text {
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+</style>
+</head>
+<body>
+
+<div class="overlay" id="overlay">
+    <div class="enter-text">Enter Site</div>
+</div>
+
+<audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const overlay = document.getElementById('overlay');
+    const music = document.getElementById('bg-music');
+
+    document.querySelector('.enter-text').addEventListener('click', () => {
+        overlay.classList.add('hidden');
+        music.play();
+    });
+</script>
+
+</body>
+</html>
